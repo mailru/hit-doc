@@ -54,7 +54,7 @@ $client = S3Client([
 ```
 * Более подробный пример вы можете увидеть в examples/ini_credentials.php
 
-### 3. Заносить credentials непосредственно в код
+## 3. Заносить credentials непосредственно в код
 ```
 $s3Client = new S3Client([
     'version'     => 'latest',
@@ -67,7 +67,7 @@ $s3Client = new S3Client([
 ]);
 ```
 * Более подробный пример вы можете увидеть в  examples/hard_coded_credentials.php
-### 4. Использовать credential provider
+## 4. Использовать credential provider
 
 credential provider - это функция, которая возращаяет GuzzleHttp\Promise\PromiseInterface, который в свою очередь  выполняется с помощью экземпляра Aws\Credentials\CredentialsInterface или отклоняется с помощью исключения Aws\Exception\CredentialsException.
 
