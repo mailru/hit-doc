@@ -1,20 +1,21 @@
 <?php
-    require '../../../vendor/autoload.php';
+    require '../../vendor/autoload.php';
     use Aws\S3\S3Client;
     use PHPUnit\Framework\TestCase;
 
     class s3test extends TestCase
     {
+        const BUCKET = 'newbucket';
+        const KEY = 'sdk_file';
+        
         public function testPutObject(): void
         {
-            $bucket  = "jiraf";
-            $key     = "sdk_file";
             $content = "body_content";
             
             $sharedConfig = [
-                'region'  => 'us-west-2',
+                'region'  => 'ru-msk',
                 'version' => 'latest',
-                'endpoint' => 'http://hb.devmail.ru'
+                'endpoint' => 'http://hb.bizmrg.com'
             ];
             
             // Create an SDK class used to share configuration across clients.
@@ -23,13 +24,13 @@
             // Create an Amazon S3 client using the shared configuration data.
             $s3Client = $sdk->createS3();
             $s3Client->putObject([
-                'Key'    => $key,
-                'Bucket' => $bucket,
+                'Key'    => self::KEY,
+                'Bucket' => self::BUCKET,
                 'Body'   => $content,
             ]);
             $result = $s3Client->getObject([
-                'Bucket' => $bucket,
-                'Key'    => $key,
+                'Key'    => self::KEY,
+                'Bucket' => self::BUCKET,
             ]);
             $this->assertEquals(
                 $content,
@@ -38,18 +39,15 @@
         }
         public function testPutAclObject(): void
         {
-            $bucket = "jiraf";
-            $key    = "sdk_file";
-        
             $params = [
                 'ACL'    => 'public-read',
-                'Bucket' => $bucket,
-                'Key'    => $key
+                'Key'    => self::KEY,
+                'Bucket' => self::BUCKET,
             ];
             $sdk = new Aws\Sdk([
-                'region'  => 'us-west-2',
+                'region'  => 'ru-msk',
                 'version' => 'latest',
-                'endpoint' => 'http://hb.devmail.ru'
+                'endpoint' => 'http://hb.bizmrg.com'
             ]);
 
             $s3Client = $sdk->createS3();
@@ -65,14 +63,12 @@
         }
         public function testGetAclObject(): void
         {
-            $bucket  = "jiraf";
-            $key     = "sdk_file";
             $content = "body_content";
 
             $sharedConfig = [
-                'region'  => 'us-west-2',
+                'region'  => 'ru-msk',
                 'version' => 'latest',
-                'endpoint' => 'http://hb.devmail.ru',
+                'endpoint' => 'http://hb.bizmrg.com'
             ];
 
             // Create an SDK class used to share configuration across clients.
@@ -82,8 +78,8 @@
             $s3Client = $sdk->createS3();
             try {
                 $result = $s3Client->getObjectAcl([
-                    'Bucket' => $bucket,
-                    'Key'    => $key
+                    'Key'    => self::KEY,
+                    'Bucket' => self::BUCKET,
                 ]);
             } catch (AwsException $e) {
                  // output error message if fails
