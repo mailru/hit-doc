@@ -8,14 +8,7 @@
 ```
 require '/path/to/vendor/autoload.php';
 ```
-* Используя Phar
-```
-require '/path/to/aws.phar';
-```
-* Используя Zip
-```
-require '/path/to/aws-autoloader.php';
-```
+Более подробную инструкцию вы можете найти в [установка aws sdk](https://github.com/mailru/hit-doc/blob/master/php/README.md)
 ### Шаг 2:  Сконфигурировать учетные данные (credentials)
 Добавьте ваши ключи доступа в переменные окружения
 ```
