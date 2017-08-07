@@ -1,5 +1,5 @@
 var AWS = require('aws-sdk');
-var S3     = require('aws-sdk/clients/s3');
+var S3  = require('aws-sdk/clients/s3');
 
 AWS.config.update({
 	region: 'ru-msk',
@@ -7,6 +7,10 @@ AWS.config.update({
 });
 
 var s3 = new AWS.S3();
+var bucket = "bucketbucket"
+var object = "objectobject"
+var body = "content"
+
 
 function GetObject(BucketName, ObjectName) {
 	s3.getObject({
@@ -36,8 +40,15 @@ function PutObject(BucketName, ObjectName, Content) {
 }
 
 
-PutObject('bucketname', "objectname", "content of file")
-
+s3.createBucket({
+    Bucket: bucket,
+}, function(err, data){
+    if (err) {
+        return alert('There was an error creating bucket: ', err.message);
+    }
+    console.log('Successfully created bucket');
+    PutObject(bucket, object, body);
+})
 
 
 
