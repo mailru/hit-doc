@@ -1,32 +1,33 @@
 <?php
-    require '../../../vendor/autoload.php';
+    require '../../vendor/autoload.php';
     use Aws\S3\S3Client;
     use PHPUnit\Framework\TestCase; 
     
     class s3test extends TestCase
     {
-        public function testPutObject(): void 
+        const BUCKET = 'newbucket';
+        const KEY = 'sdk_file';
+        
+        public function testPutObject(): void
         {
-            $bucket  = "jiraf";
-            $key     = "sdk_file";
             $content = "body_content";
             $s3Client = new S3Client([
                 'credentials' => [
-                    'key'    => '6B7hCqne2PnWonbS9wZQie',
-                    'secret' => '5QDoD91JUhqRN88oA1UfDGJJk4F4KGBi6hQfiTqgez8B',
+                    'key'    => 'AccessKeyEXAMPLE',
+                    'secret' => 'TheVeryLongLongLongSecretKeyEXAMPLE',
                 ],
-                'endpoint' => 'http://hb.devmail.ru',
-                'region'   => 'us-west-2',
+                'endpoint' => 'https://hb.bizmrg.com',
+                'region'   => 'ru-msk',
                 'version'  => 'latest',
             ]);
             $res = $s3Client->putObject([
-                'Key'    => $key,
-                'Bucket' => $bucket,
+                'Key'    => self::KEY,
+                'Bucket' => self::BUCKET,
                 'Body'   => $content,
             ]);
             $result = $s3Client->getObject([
-                'Bucket' => $bucket,
-                'Key'    => $key,
+                'Bucket' => self::BUCKET,
+                'Key'    => self::KEY,
             ]);
             $this->assertEquals(
                 $content,
@@ -34,19 +35,19 @@
             );
         }
         public function testPutCopyObject(): void
-        {  
-            $sourcebucket = "jiraf"; 
-            $sourcekey    = "sdk_file"; 
-            $bucket       = $sourcebucket;
+        {
+            $sourcebucket = self::BUCKET;
+            $sourcekey    = self::KEY;
             $key          = "copy_sdk_file";
+            $bucket       = $sourcebucket;
             
             $s3Client = new S3Client([
                 'credentials' => [
-                    'key'    => '6B7hCqne2PnWonbS9wZQie',
-                    'secret' => '5QDoD91JUhqRN88oA1UfDGJJk4F4KGBi6hQfiTqgez8B',
+                    'key'    => 'AccessKeyEXAMPLE',
+                    'secret' => 'TheVeryLongLongLongSecretKeyEXAMPLE',
                 ],
-                'endpoint' => 'http://hb.devmail.ru',
-                'region'   => 'us-west-2',
+                'endpoint' => 'https://hb.bizmrg.com',
+                'region'   => 'ru-msk',
                 'version'  => 'latest',
             ]);
             $s3Client->copyObject([
@@ -65,36 +66,35 @@
             $this->assertEquals(
                 $copy_result['ETag'],
                 $result['ETag']
-            );            
+            );
         }
         public function testDeleteObject(): void
         {
-            $bucket       = "jiraf";
-            $key          = "sdk_file";
+            $key          = self::KEY;
             $content      = "content_of_file";
             
             $s3Client = new S3Client([
                 'credentials' => [
-                    'key'    => '6B7hCqne2PnWonbS9wZQie',
-                    'secret' => '5QDoD91JUhqRN88oA1UfDGJJk4F4KGBi6hQfiTqgez8B',
+                    'key'    => 'AccessKeyEXAMPLE',
+                    'secret' => 'TheVeryLongLongLongSecretKeyEXAMPLE',
                 ],
-                'endpoint' => 'http://hb.devmail.ru',
-                'region'   => 'us-west-2',
+                'endpoint' => 'https://hb.bizmrg.com',
+                'region'   => 'ru-msk',
                 'version'  => 'latest',
-            ]);  
+            ]);
             $s3Client->putObject([
-                'Key'    => $key,
-                'Bucket' => $bucket,
+                'Key'    => self::KEY,
+                'Bucket' => self::BUCKET,
                 'Body'   => $content,
             ]);
             $result = $s3Client->deleteObject([
-                'Key'    => $key,
-                'Bucket' => $bucket,
+                'Key'    => self::KEY,
+                'Bucket' => self::BUCKET,
             ]);
             $this->assertEquals(
                 204,
                 $result['@metadata']["statusCode"]
-            );           
+            );
         }
     }
 ?>
