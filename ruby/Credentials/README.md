@@ -26,8 +26,9 @@
 aws_access_key_id = your_access_key_id
 aws_secret_access_key = your_secret_access_key
 ```
-По умолчанию используется имя профиля конфигурации ```default``` your_access_key_id - это значение вашего ключа доступа.
-your_secret_access_key - значение вашего секретного ключа доступа.
+По умолчанию используется имя профиля конфигурации ```default``` 
+* your_access_key_id - это значение вашего ключа доступа.
+* your_secret_access_key - значение вашего секретного ключа доступа.
 
 ### Использование переменных окружения
 Установите переменные окружения AWS_ACCESS_KEY_ID и AWS_SECRET_ACCESS_KEY.
