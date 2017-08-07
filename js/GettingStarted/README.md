@@ -1,16 +1,14 @@
 # Начало работы в Node.js
-### Шаг 1: Загрузить проект
+### Шаг 1: Установить SDK  и зависимости
 ```
 git clone https://github.com/awslabs/aws-nodejs-sample.git
 ```
-### Шаг 2: Установить SDK  и зависимости
 Находясь в директории ```aws-nodejs-sample```, введите:
 ```
 npm install
 ```
-
-### Шаг 3: Сконфигурируйте  ```Credentials```
-
+Более подробную инструкции можно найти в [установка aws sdk](https://github.com/mailru/hit-doc/blob/master/js/README.md)
+### Шаг 2: Сконфигурируйте  Учетные данные (credentilas)
 1. Создайте файл учетных данных в ```~/.aws /credentials```
 Для Unix подобных систем - в директории ```home```
 Для  Windows - в директории ```C:\Users\USER_NAME\```
@@ -20,15 +18,13 @@ npm install
 aws_access_key_id = YOUR_ACCESS_KEY_ID
 aws_secret_access_key = YOUR_SECRET_ACCESS_KEY
 ```
-
-### Шаг 4: Загрузите SDK
+Более подробную инструкции можно найти в [конфигрурирование учетных данных](https://github.com/mailru/hit-doc/blob/master/js/Credentials/README.md)
+### Шаг 3: Загрузите SDK
 После установки SDK вы можете загрузить пакет AWS, используя require.
 ```
 var AWS = require('aws-sdk');
 ```
-
-### Шаг 5: Загрузите ```Credentials``` и создайте клиента
-
+### Шаг 4: Загрузите Учетные данные (credentials) и создайте клиента
 ```
 var AWS = require('aws-sdk');
 var S3     = require('aws-sdk/clients/s3');
@@ -40,7 +36,7 @@ AWS.config.update({
 
 var s3 = new AWS.S3();
 ```
-### Операции
+### Шаг 5: Выполните операции
 Создав клиента S3 вы можете выполнять API запросы
 * Получить тело объекта
 ```
