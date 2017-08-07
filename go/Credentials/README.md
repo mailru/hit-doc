@@ -72,6 +72,6 @@ $ export AWS_SECRET_ACCESS_KEY=YOUR_SECRET_KEY
 sess, err := session.NewSession(&aws.Config{
     Region:      aws.String("ru-msk"),
     Credentials: credentials.NewStaticCredentials("AKID", "SECRET_KEY"),
-    endpoint: aws.String('https://hb.bizmrg.com')
+    Endpoint: aws.String('https://hb.bizmrg.com')
 })
 ```

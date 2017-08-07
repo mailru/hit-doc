@@ -14,7 +14,7 @@ import (
 )
 
 func main() {
-	var bucket, key, content string
+	var bucket, key string
 	flag.StringVar(&bucket, "b", "", "Bucketname.")
     flag.StringVar(&key,    "k", "", "Keyname.")
     flag.Parse()
@@ -28,7 +28,7 @@ func main() {
     // ListObjects
 
     fmt.Printf("Content bucket:\n\n")
-	ListObjectsErr := svc.ListObjectsPages(&s3.ListObjectsInput{
+	err := svc.ListObjectsPages(&s3.ListObjectsInput{
 		Bucket: aws.String(bucket),
 	}, func(p *s3.ListObjectsOutput, last bool) (shouldContinue bool) {
 		for _, obj := range p.Contents {
@@ -45,7 +45,7 @@ func main() {
 		os.Exit(1)
 	}
 	// PutObject
-	content = "content of object"
+	content := "content of object"
 	_, puterr := svc.PutObject(&s3.PutObjectInput{
 		Bucket: aws.String(bucket),
 		Key:    aws.String(key),
