@@ -3,7 +3,7 @@ var S3     = require('aws-sdk/clients/s3');
 
 AWS.config.update({
 	region: 'ru-msk',
-	endpoint: 'http://hb.devmail.ru',
+	endpoint: 'http://hb.bizmrg.com',
 });
 
 var s3 = new AWS.S3();
@@ -36,7 +36,7 @@ function PutObject(BucketName, ObjectName, Content) {
 }
 
 
-PutObject('jiraf', "amazon", "content of file")
+PutObject('bucketname', "objectname", "content of file")
 
 
 
