@@ -65,7 +65,7 @@ $ export AWS_SECRET_ACCESS_KEY=YOUR_SECRET_KEY
 > set AWS_ACCESS_KEY_ID=YOUR_AKID
 > set AWS_SECRET_ACCESS_KEY=YOUR_SECRET_KEY
 ```
-## Заносить credentials непосредственно в код
+## 3. Заносить credentials непосредственно в код
 
 Вы можете жестко запрограммировать учетные данные в своем приложении, передав ключи доступа экземпляру конфигурации, как показано в следующем фрагменте.
 ```
