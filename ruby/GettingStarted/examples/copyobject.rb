@@ -8,6 +8,9 @@ object = "file"
 body   = "original object"
 copy_object = "copy"
 
+puts "create bucket \"#{bucket}\""
+s3.create_bucket(bucket: bucket)
+
 puts "put object \"#{object}\" in bucket \"#{bucket}\""
 s3.put_object(
     bucket: bucket,
