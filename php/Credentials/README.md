@@ -13,9 +13,9 @@
 
 Если вы не предоставите учетные данные объекту клиента во время его создания, SDK попытается найти учетные данные в вашей среде. Первое, что SDK проверит для учетных данных, - это переменные окружения. SDK будет использовать функцию функции getenv () для поиска переменных окружения AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY и AWS_SESSION_TOKEN.
 ```
-export AWS_ACCESS_KEY_ID=6B7hCqne2PnWonbS9wZQie
+export AWS_ACCESS_KEY_ID=<your_aws_access_key_id>
 echo $AWS_ACCESS_KEY_ID
-export AWS_SECRET_ACCESS_KEY=5QDoD91JUhqRN88oA1UfDGJJk4F4KGBi6hQfiTqgez8B
+export AWS_SECRET_ACCESS_KEY=<your_aws_secret_access_key>
 echo $AWS_SECRET_ACCESS_KEY
 ```
 * Пример создания credentials с помощью переменных окружения вы можете увидеть в examples/env_credentials.php
@@ -31,12 +31,12 @@ echo $AWS_SECRET_ACCESS_KEY
 Формат файла учетных данных AWS должен выглядеть примерно так:
 ```
 [default]
-aws_access_key_id = YOUR_AWS_ACCESS_KEY_ID
-aws_secret_access_key = YOUR_AWS_SECRET_ACCESS_KEY
+aws_access_key_id = <your_aws_access_key_id>
+aws_secret_access_key = <your_aws_secret_access_key>
 
 [project1]
-aws_access_key_id = ANOTHER_AWS_ACCESS_KEY_ID
-aws_secret_access_key = ANOTHER_AWS_SECRET_ACCESS_KEY
+aws_access_key_id = <another_aws_access_key_id>
+aws_secret_access_key = <another_aws_secret_access_key>
 ```
 Каждый раздел (например, [default], [project1]) представляет отдельный профиль учетных данных. На профили можно ссылаться из файла конфигурации SDK или при создании экземпляра клиента, используя опцию профиля:
 ```
