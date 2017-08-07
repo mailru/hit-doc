@@ -4,7 +4,7 @@
 ```
 gem install aws-sdk
 ```
-Более подробную инструкцию по установке вы можете найти в [установка](https://github.com/mailru/hit-doc/blob/master/ruby/README.md)
+Более подробную инструкцию по установке вы можете найти в [установка aws sdk](https://github.com/mailru/hit-doc/blob/master/ruby/README.md)
 ### Шаг 2: Сконфигурировать учетные данные
 Создайте файл, содержащий credentials (учетные данные).
 Для Unix подобных систем ( Linux и тд):
@@ -21,7 +21,7 @@ gem install aws-sdk
 aws_access_key_id = your_access_key_id
 aws_secret_access_key = your_secret_access_key
 ```
-Более подробную инструкцию вы можете найти в [учетные данные](https://github.com/mailru/hit-doc/tree/master/ruby/Credentials)
+Более подробную инструкцию вы можете найти в [конфигурирование учетных данных](https://github.com/mailru/hit-doc/tree/master/ruby/Credentials)
 ### Шаг 3: Создайте клиента
 ```
 require 'aws-sdk'
