@@ -49,7 +49,7 @@ $client = S3Client([
     'profile' => 'project1',
     'region'  => 'us-west-2',
     'version' => 'latest',
-    'endpoint' => 'http://hb.devmail.ru'
+    'endpoint' => 'http://hb.bizmrg.com'
 ]);
 ```
 * Более подробный пример вы можете увидеть в examples/ini_credentials.php
@@ -101,7 +101,7 @@ $client = new S3Client([
     'region'      => 'us-west-2',
     'version'     => '2006-03-01',
     'credentials' => CredentialProvider::env(),
-     'endpoint' => 'http://hb.bizmrg.com'
+    'endpoint'    => 'http://hb.bizmrg.com'
 ]);
 ```
 #### 2) ini provider
