@@ -1,4 +1,4 @@
-# Настройка frostealth/yii2-aws-s3 для работы с HotBox/Icebox
+## Настройка frostealth/yii2-aws-s3 для работы с HotBox/Icebox
 
 Данный документ описывает как настроить приложение yii2 для работы с HotBox/Icebox с применением плагина [yii2-aws-s3](https://github.com/frostealth/yii2-aws-s3)
 
