@@ -49,7 +49,7 @@ $client = S3Client([
     'profile' => 'project1',
     'region'  => 'us-west-2',
     'version' => 'latest',
-    'endpoint' => 'http://hb.devmail.ru'
+    'endpoint' => 'http://hb.bizmrg.com'
 ]);
 ```
 * Более подробный пример вы можете увидеть в examples/ini_credentials.php
@@ -63,7 +63,7 @@ $s3Client = new S3Client([
         'key'    => 'my-access-key-id',
         'secret' => 'my-secret-access-key',
     ],
-    'endpoint' => 'http://hb.devmail.ru'
+    'endpoint' => 'http://hb.bizmrg.com'
 ]);
 ```
 * Более подробный пример вы можете увидеть в  examples/hard_coded_credentials.php
@@ -85,7 +85,7 @@ $client = new S3Client([
     'region'      => 'us-west-2',
     'version'     => '2006-03-01',
     'credentials' => $provider,
-     'endpoint' => 'http://hb.devmail.ru'
+    'endpoint' => 'http://hb.bizmrg.com'
 ]);
 ```
 Credential provider вызывается каждый раз, когда выполняется операция API. Если загрузка учетных данных является дорогостоящей задачей (например, загрузка с диска или сетевого ресурса) или если учетные данные не кэшируются вашим провайдером, вам следует рассмотреть возможность переноса вашего поставщика учетных данных в функцию  Aws\Credentials\CredentialProvider::memoize.
@@ -101,7 +101,7 @@ $client = new S3Client([
     'region'      => 'us-west-2',
     'version'     => '2006-03-01',
     'credentials' => CredentialProvider::env(),
-     'endpoint' => 'http://hb.devmail.ru'
+    'endpoint'    => 'http://hb.bizmrg.com'
 ]);
 ```
 #### 2) ini provider
@@ -120,7 +120,7 @@ $client = new S3Client([
     'region'      => 'us-west-2',
     'version'     => '2006-03-01',
     'credentials' => $provider,
-    'endpoint'    => 'http://hb.devmail.ru'
+     'endpoint' => 'http://hb.bizmrg.com'
 ]);
 ```
 
