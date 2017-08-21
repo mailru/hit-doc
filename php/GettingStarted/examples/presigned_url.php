@@ -8,8 +8,8 @@
         const BUCKET = 'newbucket';
         const KEY = 'sdk_file';
 
-         public function testUrl(): void
-         {
+        public function testUrl(): void
+        {
          	$content = "body_content";
          	$s3Client = new S3Client([
                 'credentials' => [
@@ -40,6 +40,6 @@
                 $content,
                 $page
             );
-         }
+        }
     }
 ?>

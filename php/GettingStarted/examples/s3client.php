@@ -1,7 +1,7 @@
 <?php
     require '../../vendor/autoload.php';
     use Aws\S3\S3Client;
-    use PHPUnit\Framework\TestCase; 
+    use PHPUnit\Framework\TestCase;
     
     class s3test extends TestCase
     {
