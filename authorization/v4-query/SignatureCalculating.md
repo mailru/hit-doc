@@ -2,8 +2,8 @@
 
 ##### 1. Формирование CanonicalRequest
 Необходимо объединить в 1 строку следующие элементы через  "\n"
-- CanonicalUri - Uri пропущенный через функцию канонаколизации [смотри файл](https://github.com/mailru/hit-doc/blob/master/authorization/v4-query/_uri_encode.md)
-- CanonicalQuery query параметры урла после пропущенные через функцию [_sort_query_string](https://github.com/mailru/hit-doc/blob/master/authorization/v4-query/_sort_query_params.md)
+- CanonicalUri - Uri пропущенный через функцию канонаколизации [смотри файл _uri_encode](https://github.com/mailru/hit-doc/blob/master/authorization/v4-query/_uri_encode.md)
+- CanonicalQuery query параметры урла после пропущенные через функцию [смотри файл_sort_query_string](https://github.com/mailru/hit-doc/blob/master/authorization/v4-query/_sort_query_params.md)
 - описание остальных параметров смотри в [ основные параметры ](https://github.com/mailru/hit-doc/blob/master/authorization/v4-query/README.md)
 ```
 method
