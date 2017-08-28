@@ -36,17 +36,17 @@ sha256_hex(CanonicalRequest)
 ##### 4. Формирование Signature
  1. Формирование $kSigning
  ```
-my $kSecret   = encode('UTF-8', "AWS4".$secret_key);
-my $kDate     = hmac_sha256($dateStamp, $kSecret);
-my $kRegion   = hmac_sha256($region, $kDate);
-my $kService  = hmac_sha256($service, $kRegion);
-my $kSigning  = hmac_sha256("aws4_request", $kService);
+kSecret   = "AWS4" + secret_key;
+kDate     = hmac_sha256(dateStamp, kSecret);
+kRegion   = hmac_sha256(region, kDate);
+kService  = hmac_sha256(service, kRegion);
+kSigning  = hmac_sha256("aws4_request", kService);
  ```
 2. Формирование $Signature
 - String2Sign - смотри пункт 3
-- kSigning    -  смотри пункт 4 часть 1
+- kSigning    - смотри пункт 4 часть 1
 ```
-	my $Signature = hmac_sha256_hex( String2Sign, $kSigning);
+Signature = hmac_sha256_hex( String2Sign, kSigning);
 ```
 ##### 5. Формирование Url
 теперь необходимо присоединить параметр с вычисленной signature из пункта 4 в конец урла:
