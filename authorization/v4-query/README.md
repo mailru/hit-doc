@@ -57,10 +57,10 @@ service
 2. Если в урле уже содержатся query параметры, то параметры авторизации дописываются после них
 3. Данные параметры добавляются через "&"
 
-timeStamp - смотри 5 пункт
-EncodedCredentialString - Credential из пункта 9 с заэнкожеными символами (смотри файл  [_uri_encode](https://github.com/mailru/hit-doc/blob/master/authorization/v4-query/_uri_encode.md))
-Expires - смотри 10 пункт
-EncodedSignedHeaders - SignedHeaders из пункта 8  с заэнкожеными символами (смотри файл  [_uri_encode](https://github.com/mailru/hit-doc/blob/master/authorization/v4-query/_uri_encode.md))
+- timeStamp - смотри 5 пункт
+- EncodedCredentialString - Credential из пункта 9 с заэнкожеными символами (смотри файл  [_uri_encode](https://github.com/mailru/hit-doc/blob/master/authorization/v4-query/_uri_encode.md))
+- Expires - смотри 10 пункт
+- EncodedSignedHeaders - SignedHeaders из пункта 8  с заэнкожеными символами (смотри файл  [_uri_encode](https://github.com/mailru/hit-doc/blob/master/authorization/v4-query/_uri_encode.md))
 ```
 "X-Amz-Algorithm=AWS4-HMAC-SHA256"
 "X-Amz-Credential=EncodedCredentialString"
