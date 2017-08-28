@@ -69,4 +69,4 @@ EncodedSignedHeaders - SignedHeaders из пункта 8  с заэнкожен�
 "X-Amz-SignedHeaders=EncodedSignedHeaders"
 ```
 
-### Следуйте в файл  SignatureCalculating
+### Следуйте в файл  [SignatureCalculating](https://github.com/mailru/hit-doc/blob/master/authorization/v4-query/SignatureCalculating.md)
