@@ -34,7 +34,7 @@ Scope,
 sha256_hex(CanonicalRequest)
 ```
 ##### 4. Формирование Signature
- 1. Формирование $kSigning
+ 1. Формирование kSigning
  ```
 kSecret   = "AWS4" + secret_key;
 kDate     = hmac_sha256(dateStamp, kSecret);
@@ -42,7 +42,7 @@ kRegion   = hmac_sha256(region, kDate);
 kService  = hmac_sha256(service, kRegion);
 kSigning  = hmac_sha256("aws4_request", kService);
  ```
-2. Формирование $Signature
+2. Формирование Signature
 - String2Sign - смотри пункт 3
 - kSigning    - смотри пункт 4 часть 1
 ```
