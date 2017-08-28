@@ -22,8 +22,10 @@ UNSIGNED-PAYLOAD
 ```
 timeStamp = содержание заголовка 'x-amz-date'
 dateStamp = часть отображающая время в заголовке 'x-amz-date'
-
-Например для  'x-amz-date' = 20170609T120101Z
+```
+Например:
+```
+'x-amz-date' = 20170609T120101Z
 timeStamp = 20170609T120101Z
 dateStamp = 20170609
 ```
