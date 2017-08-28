@@ -39,11 +39,11 @@ sub _canonicalize {
 }
 
 sub _uri_encode {
-	my ($uri, $EncodeSlash) = @_;
-	my $unreserved_string = defined $EncodeSlash ? "A-Za-z0-9._~-" : "A-Za-z0-9._~/-";
+	my ($uri, $encode_slash) = @_;
+	my $unreserved_string = $encode_slash ? "A-Za-z0-9._~-" : "A-Za-z0-9._~/-";
 	$uri =~ s{([^$unreserved_string])}{ sprintf '%%%02X',ord($1) }sge;
 	$uri =~ s/\+/%20/g;
-	$uri = _canonicalize($uri, $EncodeSlash);
+	$uri = _canonicalize($uri, $encode_slash);
 	return $uri;
 }
 ```
