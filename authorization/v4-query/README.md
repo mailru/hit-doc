@@ -35,13 +35,11 @@ dateStamp = 20170609
 как указано выше, заголовок 'x-amz-date' не добавляем, передаем как и был 'date' в том же формате который был изначально
 
 ##### 7) CanonicalHeaders
-```
-смотри файл get_canonical_and_signed_headers
-```
+
+смотри файл [_get_canonical_and_signed_headers](https://github.com/mailru/hit-doc/blob/master/authorization/v4-query/_get_canonical_and_signed_headers.md)
+
 ##### 8) SignedHeaders
-```
-смотри файл get_canonical_and_signed_headers
-```
+смотри файл [_get_canonical_and_signed_headers](https://github.com/mailru/hit-doc/blob/master/authorization/v4-query/_get_canonical_and_signed_headers.md)
 ##### 9) Credential (не хеш с ключами доступа а строка включающаяся url в 'x-amz-credentials') - объединяются в одну строку через "\n"
 ```
 access_key
@@ -60,9 +58,9 @@ service
 3. Данные параметры добавляются через "&"
 
 timeStamp - смотри 5 пункт
-EncodedCredentialString - Credential из пункта 9 с заэнкожеными символами (смотри файл  _uri_encode)
+EncodedCredentialString - Credential из пункта 9 с заэнкожеными символами (смотри файл  [_uri_encode](https://github.com/mailru/hit-doc/blob/master/authorization/v4-query/_uri_encode.md))
 Expires - смотри 10 пункт
-EncodedSignedHeaders - SignedHeaders из пункта 8  с заэнкожеными символами (смотри файл  _uri_encode)
+EncodedSignedHeaders - SignedHeaders из пункта 8  с заэнкожеными символами (смотри файл  [_uri_encode](https://github.com/mailru/hit-doc/blob/master/authorization/v4-query/_uri_encode.md))
 ```
 "X-Amz-Algorithm=AWS4-HMAC-SHA256"
 "X-Amz-Credential=EncodedCredentialString"
