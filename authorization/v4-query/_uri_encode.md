@@ -26,24 +26,24 @@ A-Za-z0-9._~/-
 
 #### Прилагается пример данной функции на языке perl
 ```
-sub _canonicalize {
-    my ($uri, $EncodeSlash) = @_;
-    defined $EncodeSlash ? $UNRESERVED{"/"} = 0 :  $UNRESERVED{"/"} = 1;
-    $uri =~ s/\+/%20/g;
-    $uri =~ s{\G%(..)|(.)}{
-        my $c = $1 ? chr(hex($1)) : $2;
-        $UNRESERVED{$c} ? $c : sprintf "%%%02X", ord($c)
-    }ge;
-    $uri =~ s/\+/%20/g;
-    return $uri;
-}
-sub _uri_encode {
-    my ($uri, $EncodeSlash) = @_;
-    my $unreserved_string = defined $EncodeSlash ? "A-Za-z0-9._~-" : "A-Za-z0-9._~/-";
-    $uri =~ s{([^$unreserved_string])}{ sprintf '%%%02X',ord($1) }sge;
-    $uri =~ s/\+/%20/g;
-    $uri = _canonicalize($uri, $EncodeSlash);
-    return $uri;
+our %UNRESERVED = map { $_ => 1 } 'a'..'z','A'..'Z','0'..'9',qw(- . _ ~ /);
 
+sub _canonicalize {
+	my ($uri) = @_;
+	$uri =~ s/\+/%20/g;
+	$uri =~ s{\G%(..)|(.)}{
+	    my $c = $1 ? chr(hex($1)) : $2;
+	    $UNRESERVED{$c} ? $c : sprintf "%%%02X", ord($c)
+	}ge;
+	return $uri;
+}
+
+sub _uri_encode {
+	my ($uri, $encode_slash) = @_;
+	my $unreserved_string = $encode_slash ? "A-Za-z0-9._~-" : "A-Za-z0-9._~/-";
+	$uri =~ s{([^$unreserved_string])}{ sprintf '%%%02X',ord($1) }sge;
+	$uri =~ s/\+/%20/g;
+	$uri = _canonicalize($uri, $encode_slash);
+	return $uri;
 }
 ```

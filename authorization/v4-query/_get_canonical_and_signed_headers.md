@@ -9,7 +9,6 @@
   - вторая содержит SignedHeaders
 ```
 #### В данной функции вы должны:
-- включать в canonical headers и signed headers только те заголовка которые не будут меняться и гарантированно передаются
 - все заголовки должны быть в lowercase
 - значения всех заголовков должны подчиняться правилам
   - группа идущих подряд пробелов/табов заменяется на один пробел
@@ -35,15 +34,13 @@ SignedHeaders    = "x-amz-date;host;x-amz-acl"
 sub _canonicalize_headers_aws4 {
     my $hdr = shift;                                                  # принимаемые функцией параметры - заголовки
     my ($CanonicalHeaders,@SignedHeaders, %new_hdr)
-    my @headers = grep(!/user-agent|Accept|x-real-ip|accept-language|connection|INTERNAL_REQUEST_ID/i,
-        keys %$hdr);                                                     # исключение из заголовков тех которые могут меняться/не передаваться
     for my $header_name (@headers){                                    # копирование всех хедеров и их значений в новый хеш "%new_hdr"
         $new_hdr{$header_name} = $hdr->{$header_name};
     }
 
     for my $key (sort keys %new_hdr){                                  # все заголовки сортируются и при этом
         $new_hdr{$key} =~ s/[\s\t]+/ /g;                                 # группа пробелов/табов заменяется единичным пробелом
-        $new_hdr{$key} =~ s/^\s?(.+)\s?$/$1/;                            # пробелы с начала ис  конца значения заголовка удаляются
+        $new_hdr{$key} =~ s/^\s?(.+)\s?$/$1/;                            # пробелы с начала и с конца значения заголовка удаляются
 
         $CanonicalHeaders .= "$key:$new_hdr{$key}\n";                  # конкатенация  "заголовок:значение\n" к canonicalheaders
         push @SignedHeaders, $key;                                     # добавление заголовка в массив signedheaders
