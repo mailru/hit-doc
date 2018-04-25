@@ -31,15 +31,10 @@ request(options, function (error, response, body) {
 });
 
 var content = "content";
-var etag    = md5hex(content);
 var put = {
 	method: "PUT",
 	url: url,
 	body: content,
-	headers: {
-		'etag': "\"" + etag + "\"",
-		'content-length': content.length,
-	}
 };
 
 request(put, function (error, response, body) {
