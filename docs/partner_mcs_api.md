@@ -80,3 +80,16 @@ X-req-id: 2NrqrYuki
 	"key":"partner"
 }
 ```
+### Ответ при невалидном токене ( заголовке авторизации )
+```
+HTTP/2 401
+Content-Type: application/json
+date: Wed, 16 Oct 2019 17:27:16 GMT
+X-req-id: 2NrqrYuki
+```
+```
+{
+	"code":"CONDITION/UNAUTHORIZED",
+	"message":"Access Token invalid"
+}
+```
